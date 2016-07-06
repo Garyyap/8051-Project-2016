@@ -1,4 +1,7 @@
 /*
+  Author: Gary Yap Hon Shin 
+  Created: 6/7/2016 (d-m-y)
+  
   This is a "Hello World" program to test
   whether the basic requirement of the 
   MCU is set up properly.If everything is
