@@ -1,3 +1,12 @@
+/*
+  This is a "Hello World" program to test
+  whether the basic requirement of the 
+  MCU is set up properly.If everything is
+  working properly, two LED at PORT0,pin2
+  and pin3 will be toggle alternatively 
+  at the rate of 0.5 second for each interval.
+*/
+	
 	LED8 DATA P0;
 	
 	ORG 0000H;
