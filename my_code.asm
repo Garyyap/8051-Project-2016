@@ -29,11 +29,5 @@ DLY0:	MOV R0,#250
 	DJNZ R1,DLY0
 	DJNZ R2,DLY1
 	RET
-<<<<<<< HEAD
-	END	
-=======
-	END	
-		
-		
 	
-
+	END	
