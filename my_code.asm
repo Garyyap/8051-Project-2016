@@ -30,4 +30,3 @@ DLY0:	MOV R0,#250
 	DJNZ R2,DLY1
 	RET
 	END	
-		

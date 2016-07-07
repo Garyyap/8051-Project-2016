@@ -9,36 +9,18 @@
 	where port 1.0 = EN and port 1.1 = RS
 */
 
-
-	 
 	  RS equ P1.1; //RS = 1 DATA , RS = 0 COMMAND
 	  EN equ P1.0;
 	  Upper_nibble equ 35H;
 	  Lower_nibble equ 36H;
 
 	  ORG 0000H
-
-	  MOV A,#20H;
-	  CLR RS;
-	  SETB EN;
 	  ACALL LCD_DELAY;
-	  CLR EN;
-	  
-	  MOV A, #28H
-	  ACALL WRITE_COMMAND;
-	  MOV A, #0CH
-	  ACALL WRITE_COMMAND;
-	  MOV A, #06H
-	  ACALL WRITE_COMMAND;
-	  MOV A, #01H
-	  ACALL WRITE_COMMAND;
-
+	  ACALL LCD_INIT;
 	  MOV 37H,#30H;
 	  ACALL WRITE_DATA;
 	
-MAIN: 
-
-	  MOV A,37H;
+MAIN: MOV A,37H;
 	  ADD A,#01H;
 	  MOV 37H,A;
 	  ACALL WRITE_DATA;
@@ -46,10 +28,27 @@ MAIN:
 	  ACALL CLEAR_LCD;
 	  SJMP MAIN;
 	  
+	  
+LCD_INIT: MOV P2,#20H;
+		  CLR RS;
+		  SETB EN;
+		  ACALL LCD_DELAY;
+	      CLR EN;
+		
+		  MOV A, #28H
+		  ACALL WRITE_COMMAND;
+		  MOV A, #0CH
+		  ACALL WRITE_COMMAND;
+		  MOV A, #06H
+		  ACALL WRITE_COMMAND;
+		  MOV A, #01H
+		  ACALL WRITE_COMMAND;
+		  RET;
+
 	
-Heart_beat:	 SETB P0.3;
+Heart_beat:	 SETB P0.0;
 			 ACALL DELAY;
-			 clr  P0.3;
+			 clr  P0.0;
 			 ACALL DELAY;
 			 RET;
 			 
@@ -107,3 +106,4 @@ DELAY3   : DJNZ 21H,DELAY3;
            RET;
 		
 		   END
+	
